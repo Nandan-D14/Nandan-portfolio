@@ -12,6 +12,8 @@
     "@tabler/icons-react": "^3.34.1",
     "clsx": "^2.1.1",
     "cobe": "^0.6.4",
+    "framer-motion": "^12.23.9",
+    "lenis": "^1.3.8",
     "motion": "^12.23.9",
     "next": "15.4.3",
     "ogl": "^1.0.11",

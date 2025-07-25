@@ -2,6 +2,8 @@
 
 import { IconBrandInstagram } from "@tabler/icons-react";
 import { AuroraText, FlipWords } from "./ui/AuroraText";
+import { motion } from "framer-motion";
+import { useState, useEffect } from "react";
 
 const GithubIcon = () => (
   <svg
@@ -52,8 +54,44 @@ const ArrowRightIcon = () => (
 );
 
 export default function Portfolio() {
+  const [isVisible, setIsVisible] = useState(false);
+
+  useEffect(() => {
+    setIsVisible(true);
+  }, []);
+
+  const containerVariants = {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: {
+        staggerChildren: 0.15,
+        delayChildren: 0.1,
+      },
+    },
+  };
+
+  const itemVariants = {
+    hidden: { y: 30, opacity: 0 },
+    visible: {
+      y: 0,
+      opacity: 1,
+      transition: {
+        type: "spring",
+        stiffness: 100,
+        damping: 12,
+        duration: 0.6,
+      },
+    },
+  };
+
   return (
-    <div className="hero-card bg-neutral-800/40 backdrop-blur-md saturate-200 rounded-0xl p-8 md:p-15 md:mt-[-50px] shadow-sm border border-gray-900 transition-transform duration-300 ease-[cubic-bezier(0.34,1.56,0.64,1)] hover:-translate-y-1 hover:shadow-xl w-8xl mx-auto z-10">
+    <motion.div 
+      className="hero-card bg-neutral-800/40 backdrop-blur-md saturate-200 rounded-0xl p-8 md:p-15 md:mt-[-50px] shadow-sm border border-gray-900 transition-transform duration-300 ease-[cubic-bezier(0.34,1.56,0.64,1)] hover:-translate-y-1 hover:shadow-xl w-8xl mx-auto z-10"
+      initial="hidden"
+      animate={isVisible ? "visible" : "hidden"}
+      variants={containerVariants}
+    >
       <div className="absolute inset-y-0 left-0 h-full w-px bg-neutral-800/80">
         <div className="absolute top-0 h-40 w-px bg-gradient-to-b from-transparent via-blue-100 to-transparent" />
       </div>
@@ -65,14 +103,24 @@ export default function Portfolio() {
       </div>
       <div className="flex flex-col md:flex-row gap-12 md:gap-50">
         {/* Left Column: Text Content */}
-        <div className="md:w-2/3">
-          <div className="flex items-center gap-3 mb-[100px]">
-            <div className="w-3 h-3 rounded-full bg-green-500 animate-pulse"></div>
+        <motion.div className="md:w-2/3" variants={itemVariants}>
+          <motion.div className="flex items-center gap-3 mb-[100px]" variants={itemVariants}>
+            <motion.div 
+              className="w-3 h-3 rounded-full bg-green-500"
+              animate={{ 
+                scale: [1, 1.2, 1],
+                opacity: [0.7, 1, 0.7] 
+              }}
+              transition={{ 
+                duration: 2, 
+                repeat: Infinity 
+              }}
+            />
             <span className="text-xs font-medium text-green-700 dark:text-green-300">
               Available for work
             </span>
-          </div>
-          <div className="relative mb-2">
+          </motion.div>
+          <motion.div className="relative mb-2" variants={itemVariants}>
             <h1 className=" text-3xl sm:text-4xl md:text-5xl lg:text-5xl xl:text-6xl font-bold leading-tight text-gray-900 dark:text-white">
               Hello 👋🏻 <br />
               I&apos;m{" "}
@@ -80,8 +128,8 @@ export default function Portfolio() {
                 <AuroraText>Nandan D</AuroraText>
               </span>
             </h1>
-          </div>
-          <div className="text-4xl font-bold mb-5 mt-5">
+          </motion.div>
+          <motion.div className="text-4xl font-bold mb-5 mt-5" variants={itemVariants}>
             I love{" "}
             <FlipWords
               words={["creating", "learning" ,"coding", "exploring","building", "designing", "crafting"]}
@@ -89,8 +137,8 @@ export default function Portfolio() {
               className="text-purple-600 dark:text-pink-600 font-semibold"
             />{" "}
             amazing experiences
-          </div>
-          <p className="text-gray-300 mb-8 max-w-2xl leading-relaxed">
+          </motion.div>
+          <motion.p className="text-gray-300 mb-8 max-w-2xl leading-relaxed" variants={itemVariants}>
             UI/UX designer & Full stack web developer focused on creating
             accessible, human-centered interfaces. Currently I am a CSE student at
             <span className="font-medium text-gray-800 dark:text-gray-200">
@@ -98,49 +146,63 @@ export default function Portfolio() {
               PES University
             </span>
             .
-          </p>
-          <div className="flex flex-wrap gap-3 mb-10">
-            <a
+          </motion.p>
+          <motion.div className="flex flex-wrap gap-3 mb-10" variants={itemVariants}>
+            <motion.a
               href="./Nandan_D_Resume.pdf"
               className="btn btn-dark px-5 py-2.5 rounded-lg text-sm font-medium bg-slate-100 text-black border border-slate-700 transition-colors hover:bg-slate-200"
+              whileHover={{ scale: 1.05, y: -2 }}
+              whileTap={{ scale: 0.95 }}
             >
               View My CV
-            </a>
-            <a
+            </motion.a>
+            <motion.a
               href="#"
               className="btn btn-light px-5 py-2.5 text-sm font-medium text-white flex items-center gap-2 border border-slate-700 rounded-lg transition-colors hover:bg-slate-100 hover:text-black"
+              whileHover={{ scale: 1.05, y: -2 }}
+              whileTap={{ scale: 0.95 }}
             >
               Contact Me <ArrowRightIcon />
-            </a>
-          </div>
-          <div className="flex items-center gap-4 mt-8">
+            </motion.a>
+          </motion.div>
+          <motion.div className="flex items-center gap-4 mt-8" variants={itemVariants}>
             <p className="text-sm text-gray-400">Connect:</p>
             <div className="flex gap-3">
-              <a
+              <motion.a
                 href="https://github.com/nandan-d14"
                 className="social-link w-8 h-8 rounded-full flex items-center justify-center text-gray-300 hover:text-white transition-transform hover:-translate-y-0.5 hover:bg-slate-100 dark:hover:bg-slate-800"
+                whileHover={{ scale: 1.2, y: -3 }}
               >
                 <GithubIcon />
-              </a>
-              <a
+              </motion.a>
+              <motion.a
                 href="https://linkedin.com/in/nandan-14"
                 className="social-link w-8 h-8 rounded-full flex items-center justify-center text-gray-300 hover:text-white transition-transform hover:-translate-y-0.5 hover:bg-slate-100 dark:hover:bg-slate-800"
+                whileHover={{ scale: 1.2, y: -3 }}
               >
                 <LinkedinIcon />
-              </a>
-              <a
+              </motion.a>
+              <motion.a
                 href="https://instagram.com/__nandan__d14"
                 className="social-link w-8 h-8 rounded-full flex items-center justify-center text-gray-300 hover:text-white transition-transform hover:-translate-y-0.5 hover:bg-slate-100 dark:hover:bg-slate-800"
+                whileHover={{ scale: 1.2, y: -3 }}
               >
                 <IconBrandInstagram />
-              </a>
+              </motion.a>
             </div>
-          </div>
-        </div>
+          </motion.div>
+        </motion.div>
         {/* Right Column: Profile Image */}
-        <div className="md:w-1/3 flex items-center justify-center">
+        <motion.div className="md:w-1/3 flex items-center justify-center" variants={itemVariants}>
           <div className="relative">
-            <div className="bg-gray-800 grayscale-40 border-2 border-dashed border-gray-700 rounded-3xl w-40 h-40 md:w-88 md:h-108 flex items-center justify-center overflow-hidden">
+            <motion.div 
+              className="bg-gray-800 grayscale-40 border-2 border-dashed border-gray-700 rounded-3xl w-40 h-40 md:w-88 md:h-108 flex items-center justify-center overflow-hidden"
+              whileHover={{ 
+                scale: 1.05,
+                rotate: 2,
+                transition: { type: "spring", stiffness: 300, damping: 20 }
+              }}
+            >
               <img
                 src="https://i.pinimg.com/736x/d6/8a/12/d68a121e960094f99ad8acd37505fb7d.jpg"
                 alt="Profile"
@@ -152,10 +214,10 @@ export default function Portfolio() {
                     "https://placehold.co/192x192/e2e8f0/475569?text=Image";
                 }}
               />
-            </div>
+            </motion.div>
           </div>
-        </div>
+        </motion.div>
       </div>
-    </div>
+    </motion.div>
   );
 }

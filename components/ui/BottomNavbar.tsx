@@ -100,6 +100,14 @@ const FloatingDockDesktop = ({
   let mouseX = useMotionValue(Infinity);
   return (
     <motion.div
+      initial={{ y: 100, opacity: 0 }}
+      animate={{ y: 0, opacity: 1 }}
+      transition={{ 
+        type: "spring", 
+        stiffness: 100, 
+        damping: 20, 
+        delay: 0.5 
+      }}
       onMouseMove={(e) => mouseX.set(e.pageX)}
       onMouseLeave={() => mouseX.set(Infinity)}
       className={cn(
@@ -107,8 +115,20 @@ const FloatingDockDesktop = ({
         className,
       )}
     >
-      {items.map((item) => (
-        <IconContainer mouseX={mouseX} key={item.title} {...item} />
+      {items.map((item, index) => (
+        <motion.div
+          key={item.title}
+          initial={{ scale: 0, opacity: 0 }}
+          animate={{ scale: 1, opacity: 1 }}
+          transition={{ 
+            delay: 0.7 + index * 0.1, 
+            type: "spring", 
+            stiffness: 200, 
+            damping: 15 
+          }}
+        >
+          <IconContainer mouseX={mouseX} {...item} />
+        </motion.div>
       ))}
     </motion.div>
   );
