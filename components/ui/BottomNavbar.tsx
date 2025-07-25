@@ -236,7 +236,7 @@ export default function () {
       icon: (
         <IconCandle className="h-full w-full text-neutral-300" />
       ),
-      href: "#",
+      href: "/skills",
     },
     {
       title: "Projects",
@@ -245,31 +245,31 @@ export default function () {
       ),
       href: "/projects",
     },
-    {
-      title: "Aceternity UI",
-      icon: (
-        <img
-          src="https://assets.aceternity.com/logo-dark.png"
-          width={20}
-          height={20}
-          alt="Aceternity Logo"
-        />
-      ),
-      href: "#",
-    },
+    // {
+    //   title: "Aceternity UI",
+    //   icon: (
+    //     <img
+    //       src="https://assets.aceternity.com/logo-dark.png"
+    //       width={20}
+    //       height={20}
+    //       alt="Aceternity Logo"
+    //     />
+    //   ),
+    //   href: "#",
+    // },
     {
       title: "About me",
       icon: (
         <IconExchange className="h-full w-full text-neutral-300" />
       ),
-      href: "#",
+      href: "/about",
     },
     {
-      title: "Working",
+      title: "Contact",
       icon: (
         <IconTools className="h-full w-full text-neutral-300" />
       ),
-      href: "/working",
+      href: "/contact",
     },
   ];
   return (
