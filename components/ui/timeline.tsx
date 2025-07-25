@@ -42,7 +42,7 @@ export const Timeline = ({ data }: { data: TimelineEntry[] }) => {
           My Projects
         </h1>
         <p className="text-neutral-700 dark:text-neutral-300 text-sm md:text-base max-w-sm">
-          This are the projects and I have worked on recently, showcasing my skills in web development and design.
+          This are the projects and I have worked on recently, showcasing my skills in web development and Coding.
         </p>
       </div>
 
