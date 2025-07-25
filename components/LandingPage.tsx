@@ -86,7 +86,7 @@ export default function Portfolio() {
   };
 
   return (
-    <motion.div 
+    <motion.div
       className="hero-card bg-neutral-800/40 backdrop-blur-md saturate-200 rounded-0xl p-8 md:p-15 md:mt-[-50px] shadow-sm border border-gray-900 transition-transform duration-300 ease-[cubic-bezier(0.34,1.56,0.64,1)] hover:-translate-y-1 hover:shadow-xl w-8xl mx-auto z-10"
       initial="hidden"
       animate={isVisible ? "visible" : "hidden"}
@@ -104,51 +104,70 @@ export default function Portfolio() {
       <div className="flex flex-col md:flex-row gap-12 md:gap-50">
         {/* Left Column: Text Content */}
         <motion.div className="md:w-2/3" variants={itemVariants}>
-          <motion.div className="flex items-center gap-3 mb-[100px]" variants={itemVariants}>
-            <motion.div 
+          <motion.div
+            className="flex items-center gap-3 mb-[100px]"
+            variants={itemVariants}
+          >
+            <motion.div
               className="w-3 h-3 rounded-full bg-green-500"
-              animate={{ 
+              animate={{
                 scale: [1, 1.2, 1],
-                opacity: [0.7, 1, 0.7] 
+                opacity: [0.7, 1, 0.7],
               }}
-              transition={{ 
-                duration: 2, 
-                repeat: Infinity 
+              transition={{
+                duration: 2,
+                repeat: Infinity,
               }}
             />
-            <span className="text-xs font-medium text-green-700 dark:text-green-300">
+            <span className="text-xs font-medium text-green-300">
               Available for work
             </span>
           </motion.div>
           <motion.div className="relative mb-2" variants={itemVariants}>
-            <h1 className=" text-3xl sm:text-4xl md:text-5xl lg:text-5xl xl:text-6xl font-bold leading-tight text-gray-900 dark:text-white">
+            <h1 className=" text-3xl sm:text-4xl md:text-5xl lg:text-5xl xl:text-6xl font-bold leading-tight text-white">
               Hello 👋🏻 <br />
               I&apos;m{" "}
-              <span className="relative inline-block font-Bold after:content-[''] after:absolute after:w-0 after:h-0.5 after:bottom-0 after:left-0 after:bg-slate-900 dark:after:bg-slate-100 after:transition-all after:duration-300 hover:after:w-full">
+              <span className="relative inline-block font-Bold after:content-[''] after:absolute after:w-0 after:h-0.5 after:bottom-0 after:left-0 after:bg-slate-100 after:transition-all after:duration-300 hover:after:w-full">
                 <AuroraText>Nandan D</AuroraText>
               </span>
             </h1>
           </motion.div>
-          <motion.div className="text-4xl font-bold mb-5 mt-5" variants={itemVariants}>
+          <motion.div
+            className="text-4xl font-bold mb-5 mt-5"
+            variants={itemVariants}
+          >
             I love{" "}
             <FlipWords
-              words={["creating", "learning" ,"coding", "exploring","building", "designing", "crafting"]}
+              words={[
+                "creating",
+                "learning",
+                "coding",
+                "exploring",
+                "building",
+                "designing",
+                "crafting",
+              ]}
               duration={3000}
-              className="text-purple-600 dark:text-pink-600 font-semibold"
+              className="dark:text-pink-600 text-pink-600 font-semibold"
             />{" "}
             amazing experiences
           </motion.div>
-          <motion.p className="text-gray-300 mb-8 max-w-2xl leading-relaxed" variants={itemVariants}>
-            UI/UX designer & Full stack web developer focused on creating
-            accessible, human-centered interfaces. Currently I am a CSE student at
-            <span className="font-medium text-gray-800 dark:text-gray-200">
-              {" "}
-              PES University
-            </span>
+          <motion.p
+            className="text-gray-300 mb-8 max-w-2xl leading-relaxed"
+            variants={itemVariants}
+          >
+            Engineering student at{" "}
+            <span className="font-medium text-gray-200"> PES University</span>{" "}
+            with hands-on experience in full-stack development and AI/ML.
+            Seeking to contribute to dynamic teams and gain practical exposure.
             .
           </motion.p>
-          <motion.div className="flex flex-wrap gap-3 mb-10" variants={itemVariants}>
+          <motion.div
+            className="flex flex-wrap gap-3 mb-10"
+            variants={itemVariants}
+          >
             <motion.a
+              target="_blank"
               href="./Nandan_D_Resume.pdf"
               className="btn btn-dark px-5 py-2.5 rounded-lg text-sm font-medium bg-slate-100 text-black border border-slate-700 transition-colors hover:bg-slate-200"
               whileHover={{ scale: 1.05, y: -2 }}
@@ -165,26 +184,29 @@ export default function Portfolio() {
               Contact Me <ArrowRightIcon />
             </motion.a>
           </motion.div>
-          <motion.div className="flex items-center gap-4 mt-8" variants={itemVariants}>
+          <motion.div
+            className="flex items-center gap-4 mt-8"
+            variants={itemVariants}
+          >
             <p className="text-sm text-gray-400">Connect:</p>
             <div className="flex gap-3">
               <motion.a
                 href="https://github.com/nandan-d14"
-                className="social-link w-8 h-8 rounded-full flex items-center justify-center text-gray-300 hover:text-white transition-transform hover:-translate-y-0.5 hover:bg-slate-100 dark:hover:bg-slate-800"
+                className="social-link w-8 h-8 rounded-full flex items-center justify-center text-gray-300 hover:text-white transition-transform hover:-translate-y-0.5  hover:bg-slate-800"
                 whileHover={{ scale: 1.2, y: -3 }}
               >
                 <GithubIcon />
               </motion.a>
               <motion.a
                 href="https://linkedin.com/in/nandan-14"
-                className="social-link w-8 h-8 rounded-full flex items-center justify-center text-gray-300 hover:text-white transition-transform hover:-translate-y-0.5 hover:bg-slate-100 dark:hover:bg-slate-800"
+                className="social-link w-8 h-8 rounded-full flex items-center justify-center text-gray-300 hover:text-white transition-transform hover:-translate-y-0.5 hover:bg-slate-800"
                 whileHover={{ scale: 1.2, y: -3 }}
               >
                 <LinkedinIcon />
               </motion.a>
               <motion.a
                 href="https://instagram.com/__nandan__d14"
-                className="social-link w-8 h-8 rounded-full flex items-center justify-center text-gray-300 hover:text-white transition-transform hover:-translate-y-0.5 hover:bg-slate-100 dark:hover:bg-slate-800"
+                className="social-link w-8 h-8 rounded-full flex items-center justify-center text-gray-300 hover:text-white transition-transform hover:-translate-y-0.5 hover:bg-slate-800"
                 whileHover={{ scale: 1.2, y: -3 }}
               >
                 <IconBrandInstagram />
@@ -193,14 +215,17 @@ export default function Portfolio() {
           </motion.div>
         </motion.div>
         {/* Right Column: Profile Image */}
-        <motion.div className="md:w-1/3 flex items-center justify-center" variants={itemVariants}>
+        <motion.div
+          className="md:w-1/3 flex items-center justify-center"
+          variants={itemVariants}
+        >
           <div className="relative">
-            <motion.div 
+            <motion.div
               className="bg-gray-800 grayscale-40 border-2 border-dashed border-gray-700 rounded-3xl w-40 h-40 md:w-88 md:h-108 flex items-center justify-center overflow-hidden"
-              whileHover={{ 
+              whileHover={{
                 scale: 1.05,
                 rotate: 2,
-                transition: { type: "spring", stiffness: 300, damping: 20 }
+                transition: { type: "spring", stiffness: 300, damping: 20 },
               }}
             >
               <img

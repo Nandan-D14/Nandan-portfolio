@@ -5,7 +5,6 @@ import { CometCard } from "@/components/ui/comet-card";
 import { BackgroundBeamsWithCollision } from "@/components/ui/background-beams-with-collision";
 import Particles from "@/components/ui/Particales";
 import BottomNavbar from "@/components/ui/BottomNavbar";
-import CustomCursor from "@/components/ui/CustomCursor";
 import { motion, AnimatePresence } from "framer-motion";
 
 // Loading Screen Component
@@ -98,6 +97,7 @@ const Home = () => {
             "radial-gradient(125% 125% at 50% 100%, #000000 40%, #010133 100%)",
         }}
       />
+      {/* <LoadingScreen isLoading={false}/> */}
       <BackgroundBeamsWithCollision>
         <motion.div
           initial={{ scale: 0.95, opacity: 0 }}

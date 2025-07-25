@@ -236,7 +236,7 @@ export default function () {
       icon: (
         <IconCandle className="h-full w-full text-neutral-300" />
       ),
-      href: "/skills",
+      href: "/about#skills",
     },
     {
       title: "Projects",
@@ -269,7 +269,7 @@ export default function () {
       icon: (
         <IconTools className="h-full w-full text-neutral-300" />
       ),
-      href: "/contact",
+      href: "/about#contact",
     },
   ];
   return (
