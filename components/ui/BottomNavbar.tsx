@@ -262,7 +262,7 @@ export default function () {
       icon: (
         <IconExchange className="h-full w-full text-neutral-300" />
       ),
-      href: "/about",
+      href: "/aboutme",
     },
     {
       title: "Contact",

@@ -1,7 +1,68 @@
 import { AnimatedTooltip } from "@/components/ui/animated-tooltip";
 import { motion } from "framer-motion";
 
-const my_cv = "./Nandan_D_Resume.pdf";
+export const my_cv = "./Nandan_D_Resume.pdf";
+export const Name = "Nandan D";
+
+export const skills = {
+  Languages: ["Python", "JavaScript", "JQuery", "HTML", "CSS", "C", "DSA"],
+};
+
+export const academics = [
+  {
+    id: 1,
+    CollegeName: "PES University, Bangalore",
+    Marks: "CSE",
+    date: "Aug 2023 – May 2027",
+    slogan:
+      "Focused on core computer science concepts including programming, data structures, web development, machine learning and networks. Participating in technical clubs and hackathons.",
+    courses: [
+      "Data Structures & Algorithms",
+      "Machine Learning",
+      "Operating Systems",
+      "Computer Networks",
+      "Web Development",
+      "Database Management Systems",
+    ],
+  },
+  {
+    id: 2,
+    CollegeName: "Vikasa PU College",
+    Marks: "PU (12th Grade), 95% in PCM",
+    date: "June 2021 – May 2023",
+    slogan:
+      "Focused on core computer science concepts including programming, data structures, web development, machine learning and networks. Participating in technical clubs and hackathons.",
+    courses: ["Physics", "Mathematics", "Chemistry", "Biology"],
+  },
+  {
+    id: 3,
+    CollegeName: "MDRS Anaveri",
+    Marks: "SSLC (10th Grade), 90%",
+    date: "Jun 2016 – May 2021",
+    slogan:
+      "Focused on core computer science concepts including programming, data structures, web development, machine learning and networks. Participating in technical clubs and hackathons.",
+    courses: [
+      "Mathematics",
+      "Science",
+      "English",
+      "Social Science",
+    ],
+  },
+];
+
+export const contactDetails = {
+    number : "+91 7019475709",
+    location: " Karnataka, India",
+    gamil: "nandand1482005@gmail.com",
+    github: "https://github.com/Nandan-D14",
+    linkedIn: "https://linkedin.com/in/nandan-d14",
+    instagram: "https://www.instagram.com/__nandan__d14",
+}
+
+export const Certifications = {
+    'Python Programming ':'Udemy',
+    'DSA Problem Solving' :'HackerRank',
+}
 
 const TechStack = [
   {
@@ -46,13 +107,19 @@ export const tilelineData = [
   {
     title: "Explore World",
     content: (
-      <div>
-        <p className="mb-8 text-xl font-normal text-neutral-800 md:text-neutral-200">
+      <motion.div
+        initial={{ y: 50, opacity: 0 }}
+        whileInView={{ y: 0, opacity: 1 }}
+        viewport={{ once: true, amount: 0.3 }}
+        transition={{ duration: 0.6, delay: 0.2 }}
+      >
+        {/* ...existing code... */}
+        <p className="mb-8 md:text-xl text-md font-normal text-neutral-200">
           A modern, full-stack web application for discovering and exploring
           amazing travel destinations around the world. Built with React.js
           frontend and Node.js/Express backend with MongoDB database.
         </p>
-        <p className="mb-8 text-xl font-normal text-neutral-800 md:text-neutral-200">
+        <p className="mb-8 md:text-xl text-md font-normal text-neutral-200">
           check live here{" "}
           <a
             href="https://explore-world-steel.vercel.app/"
@@ -63,11 +130,6 @@ export const tilelineData = [
             Explore World
           </a>
         </p>
-        <motion.div
-        initial={{ y: 50, opacity: 0 }}
-        animate={{ y: 0, opacity: 1 }}
-        transition={{ duration: 0.6, delay: 0.4 }}
-      >
         <div className="grid grid-cols-2 gap-4">
           <img
             src="./exploreworld/image1.png"
@@ -97,28 +159,34 @@ export const tilelineData = [
             height={500}
             className="h-20 w-full rounded-lg object-cover shadow-[0_0_24px_rgba(34,_42,_53,_0.06),_0_1px_1px_rgba(0,_0,_0,_0.05),_0_0_0_1px_rgba(34,_42,_53,_0.04),_0_0_4px_rgba(34,_42,_53,_0.08),_0_16px_68px_rgba(47,_48,_55,_0.05),_0_1px_0_rgba(255,_255,_255,_0.1)_inset] md:h-44 lg:h-60"
           />
-        </div></motion.div>
+        </div>
         <div className="flex flex-row items-center mt-10 w-full">
           <AnimatedTooltip items={TechStack} />
         </div>
-      </div>
+      </motion.div>
     ),
   },
   {
     title: "Prompt Pallete",
     content: (
-      <div>
-        <p className="mb-8 text-xl font-normal text-neutral-800 md:text-neutral-200">
+      <motion.div
+        initial={{ y: 50, opacity: 0 }}
+        whileInView={{ y: 0, opacity: 1 }}
+        viewport={{ once: true, amount: 0.3 }}
+        transition={{ duration: 0.6, delay: 0.2 }}
+      >
+        {/* ...existing code... */}
+        <p className="mb-8 md:text-xl text-md font-normal text-neutral-200">
           A modern full-stack AI image gallery platform built with Next.js 15,
           Firebase, and TypeScript. Features real-time gallery updates, user
           authentication, admin tools, and AI-powered image prompts.
         </p>
-        <p className="mb-8 text-xs font-normal text-neutral-800 md:text-sm dark:text-neutral-200">
+        <p className="mb-8 text-xs font-normal  md:text-sm text-neutral-200">
           prompt pallet is website that have to many ai prompts to edit you
           photos into master piece , and you can generate more accurate prompt
           in your style.
         </p>
-        <p className="mb-8 text-xl font-normal text-neutral-800 md:text-neutral-200">
+        <p className="mb-8 md:text-xl text-md font-normal text-neutral-200">
           check live here{" "}
           <a
             href="https://prompt-pallet.vercel.app/"
@@ -162,18 +230,23 @@ export const tilelineData = [
         <div className="flex flex-row items-center mt-10 w-full">
           <AnimatedTooltip items={TechStack} />
         </div>
-      </div>
+      </motion.div>
     ),
   },
   {
     title: "Type Me",
     content: (
-      <div>
-        <p className="mb-8 text-xl font-normal text-neutral-800 md:text-neutral-200">
+      <motion.div
+        initial={{ y: 50, opacity: 0 }}
+        whileInView={{ y: 0, opacity: 1 }}
+        viewport={{ once: true, amount: 0.3 }}
+        transition={{ duration: 0.6, delay: 0.2 }}
+      >
+        <p className="mb-8 md:text-xl text-md font-normal text-neutral-200">
           Type me is simple website that i made to practice speed typing , you
           can check it out through clicking below link.
         </p>
-        <p className="mb-8 text-xl font-normal text-neutral-800 md:text-neutral-200">
+        <p className="mb-8 md:text-xl text-md font-normal text-neutral-200">
           check live here{" "}
           <a
             href="https://inspiring-lamington-029d50.netlify.app/"
@@ -203,20 +276,20 @@ export const tilelineData = [
         <div className="flex flex-row items-center mt-10 w-full">
           <AnimatedTooltip items={TechStack} />
         </div>
-      </div>
+      </motion.div>
     ),
   },
   {
     title: "Gesture Control",
     content: (
       <div>
-        <p className="mb-8 text-xl font-normal text-neutral-800 md:text-neutral-200">
+        <p className="mb-8 md:text-xl text-md font-normal text-neutral-200">
           A real-time hand gesture and distance-sensor-based mouse, scroll, and
           volume controller using Python, OpenCV, MediaPipe, and Arduino. This
           hybrid system enables touchless control of PC functions via hand
           gestures and ultrasonic sensor inputs.
         </p>
-        <p className="mb-8 text-xl font-normal text-neutral-800 md:text-neutral-200">
+        <p className="mb-8 md:text-xl text-md font-normal text-neutral-200">
           check live here{" "}
           <a
             href="https://github.com/Nandan-D14/Vision-Hand-Gesture-Control-System"
@@ -276,11 +349,11 @@ export const tilelineData = [
     title: "Voice Assistant",
     content: (
       <div>
-        <p className="mb-8 text-xl font-normal text-neutral-800 md:text-neutral-200">
+        <p className="mb-8 md:text-xl text-md font-normal text-neutral-200">
           A comprehensive voice assistant built with Python that integrates
           Google's Gemini AI for intelligent conversations and responses.
         </p>
-        <p className="mb-8 text-xl font-normal text-neutral-800 md:text-neutral-200">
+        <p className="mb-8 md:text-xl text-md font-normal text-neutral-200">
           check live here{" "}
           <a
             href="https://github.com/Nandan-D14/voice-assistant-project"
@@ -339,14 +412,14 @@ export const tilelineData = [
     title: "Weather Assistant",
     content: (
       <div>
-        <p className="mb-8 text-xl font-normal text-neutral-800 md:text-neutral-200">
+        <p className="mb-8 md:text-xl text-md font-normal text-neutral-200">
           This is a Python-based weather application with a graphical interface
           built using Tkinter. It provides real-time weather updates, a 7-day
           forecast, air quality details (AQI, PM2.5, PM10), and timezone info.
           The app supports both text and voice input, and gives spoken weather
           reports using text-to-speech.
         </p>
-        <p className="mb-8 text-xl font-normal text-neutral-800 md:text-neutral-200">
+        <p className="mb-8 md:text-xl text-md font-normal text-neutral-200">
           check live here{" "}
           <a
             href="https://github.com/Nandan-D14/weather-voice-assistant"
@@ -394,12 +467,12 @@ export const tilelineData = [
     title: "Search Pro",
     content: (
       <div>
-        <p className="mb-8 text-xl font-normal text-neutral-800 md:text-neutral-200">
+        <p className="mb-8 md:text-xl text-md font-normal text-neutral-200">
           Search Pro Extension is a modern, customizable Chrome extension that
           provides a sleek, glassy search interface for quick access to multiple
           search engines and custom websites
         </p>
-        <p className="mb-8 text-xl font-normal text-neutral-800 md:text-neutral-200">
+        <p className="mb-8 md:text-xl text-md font-normal text-neutral-200">
           check live here{" "}
           <a
             href="https://github.com/Nandan-D14/search-pro-browser-extension/"
@@ -450,7 +523,7 @@ export const tilelineData = [
     title: "Skill Bridge",
     content: (
       <div>
-        <p className="mb-8 text-xl font-normal text-neutral-800 md:text-neutral-200">
+        <p className="mb-8 md:text-xl text-md font-normal text-neutral-200">
           React Native app connecting skilled professionals.
         </p>
         <div className="grid grid-cols-4 gap-4">
@@ -493,7 +566,7 @@ export const tilelineData = [
     title: "My Portfolio",
     content: (
       <div>
-        <p className="mb-8 text-xl font-normal text-neutral-800 md:text-neutral-200">
+        <p className="mb-8 md:text-xl text-md font-normal text-neutral-200">
           My Portfolio is a showcase of my projects and skills, built with
           Next.JS
         </p>
