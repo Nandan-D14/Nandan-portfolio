@@ -49,7 +49,7 @@ const FloatingDockMobile = ({
         {open && (
           <motion.div
             layoutId="nav"
-            className="absolute inset-x-0 bottom-full mb-2 flex flex-col gap-2"
+            className="absolute bottom-full mb-2 left-1/2 transform -translate-x-1/2 flex flex-col gap-2"
           >
             {items.map((item, idx) => (
               <motion.div
@@ -71,9 +71,9 @@ const FloatingDockMobile = ({
                 <a
                   href={item.href}
                   key={item.title}
-                  className="flex h-10 w-10 items-center justify-center rounded-full bg-neutral-900"
+                  className="flex h-12 w-12 items-center justify-center rounded-full bg-neutral-900/90 backdrop-blur-sm border border-neutral-700 shadow-lg"
                 >
-                  <div className="h-4 w-4">{item.icon}</div>
+                  <div className="h-5 w-5">{item.icon}</div>
                 </a>
               </motion.div>
             ))}
@@ -82,9 +82,9 @@ const FloatingDockMobile = ({
       </AnimatePresence>
       <button
         onClick={() => setOpen(!open)}
-        className="flex h-10 w-10 items-center justify-center rounded-full bg-neutral-800"
+        className="flex h-12 w-12 items-center justify-center rounded-full bg-neutral-800/90 backdrop-blur-sm border border-neutral-700 shadow-lg"
       >
-        <IconLayoutNavbarCollapse className="h-5 w-5 text-neutral-400" />
+        <IconLayoutNavbarCollapse className="h-6 w-6 text-neutral-300" />
       </button>
     </div>
   );
@@ -111,7 +111,7 @@ const FloatingDockDesktop = ({
       onMouseMove={(e) => mouseX.set(e.pageX)}
       onMouseLeave={() => mouseX.set(Infinity)}
       className={cn(
-        "mx-auto hidden h-16 items-end gap-4 backdrop-blur-md saturate-200 rounded-2xl px-4 pb-3 border-1 border-neutral-700 md:flex bg-neutral-900/70",
+        "mx-auto hidden h-16 items-end gap-4 backdrop-blur-md saturate-200 rounded-2xl px-4 pb-3 border border-neutral-700 md:flex bg-neutral-900/70 shadow-xl",
         className,
       )}
     >
@@ -230,78 +230,41 @@ export default function BottomNavbar() {
       ),
       href: "/",
     },
- 
+    {
+      title: "About",
+      icon: (
+        <IconExchange className="h-full w-full text-neutral-300" />
+      ),
+      href: "/aboutme#about",
+    },
     {
       title: "Skills",
       icon: (
         <IconCandle className="h-full w-full text-neutral-300" />
       ),
-      href: "/about#skills",
+      href: "/aboutme#skills",
     },
     {
       title: "Projects",
       icon: (
         <IconBook2 className="h-full w-full text-neutral-300" />
       ),
-      href: "/projects",
-    },
-    // {
-    //   title: "Aceternity UI",
-    //   icon: (
-    //     <img
-    //       src="https://assets.aceternity.com/logo-dark.png"
-    //       width={20}
-    //       height={20}
-    //       alt="Aceternity Logo"
-    //     />
-    //   ),
-    //   href: "#",
-    // },
-    {
-      title: "About me",
-      icon: (
-        <IconExchange className="h-full w-full text-neutral-300" />
-      ),
-      href: "/aboutme",
+      href: "/aboutme#projects",
     },
     {
       title: "Contact",
       icon: (
         <IconTools className="h-full w-full text-neutral-300" />
       ),
-      href: "/about#contact",
+      href: "/aboutme#contact",
     },
   ];
   return (
-    <div className="bottomNav w-screen flex items-center justify-center">
-      <div className="md:flex items-center justify-between cursor-auto fixed bottom-8 z-100">
-        {/* <ul className="flex items-center space-x-4">
-          <li className="text-gray-600 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white cursor-pointer">
-            Home
-          </li>
-          <li className="text-gray-600 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white cursor-pointer">
-            About
-          </li>
-          <li className="text-gray-600 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white cursor-pointer">
-            Projects
-          </li>
-          <li className="text-gray-600 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white cursor-pointer">
-            Contact
-          </li>
-        </ul>
-        <div className="flex items-center space-x-4">
-          <button className="text-gray-600 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white">
-            Settings
-          </button>
-          <button className="text-gray-600 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white">
-            Logout
-          </button>
-        </div>*/}
+    <div className="fixed bottom-4 left-1/2 transform -translate-x-1/2 z-50 w-full max-w-md px-4">
       <FloatingDock
-      mobileClassName="translate-y-20" 
-      items={links}
+        mobileClassName="translate-y-0" 
+        items={links}
       />
-      </div> 
     </div>
   );
 }

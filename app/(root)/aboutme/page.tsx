@@ -97,131 +97,7 @@ const techLogos: { [key: string]: string } = {
   "Slack": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/slack/slack-original.svg",
 };
 
-// Animated Scrolling Following String Component
-const AnimatedScrollString = () => {
-  const { scrollYProgress } = useScroll();
-  const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
-  
-  const pathLength = useTransform(scrollYProgress, [0, 1], [0, 1]);
-  const opacity = useTransform(scrollYProgress, [0, 0.2, 0.8, 1], [0, 1, 1, 0]);
-  
-  useEffect(() => {
-    const handleMouseMove = (e: MouseEvent) => {
-      setMousePosition({ x: e.clientX, y: e.clientY });
-    };
-    
-    window.addEventListener('mousemove', handleMouseMove);
-    return () => window.removeEventListener('mousemove', handleMouseMove);
-  }, []);
 
-  return (
-    <div className="fixed inset-0 pointer-events-none z-50">
-      {/* Animated Curved String */}
-      <svg className="absolute left-8 top-0 w-16 h-full" style={{ opacity }}>
-        <defs>
-          <linearGradient id="stringGradient" x1="0%" y1="0%" x2="0%" y2="100%">
-            <stop offset="0%" stopColor="#3b82f6" />
-            <stop offset="50%" stopColor="#8b5cf6" />
-            <stop offset="100%" stopColor="#ec4899" />
-          </linearGradient>
-          <filter id="glow">
-            <feGaussianBlur stdDeviation="3" result="coloredBlur"/>
-            <feMerge> 
-              <feMergeNode in="coloredBlur"/>
-              <feMergeNode in="SourceGraphic"/>
-            </feMerge>
-          </filter>
-        </defs>
-        
-        {/* Main Curved String */}
-        <motion.path
-          d="M 8 0 Q 16 100, 8 200 Q 0 300, 8 400 Q 16 500, 8 600 Q 0 700, 8 800 Q 16 900, 8 1000"
-          stroke="url(#stringGradient)"
-          strokeWidth="3"
-          fill="none"
-          filter="url(#glow)"
-          style={{
-            pathLength: useTransform(scrollYProgress, [0, 1], [0, 1]),
-            strokeDasharray: 1,
-            strokeDashoffset: useTransform(scrollYProgress, [0, 1], [1, 0]),
-          }}
-        />
-        
-        {/* Animated Beads on String */}
-        <motion.circle
-          cx="8"
-          cy="0"
-          r="4"
-          fill="#3b82f6"
-          filter="url(#glow)"
-          style={{
-            cy: useTransform(scrollYProgress, [0, 1], [0, window.innerHeight - 20]),
-          }}
-        />
-        <motion.circle
-          cx="8"
-          cy="0"
-          r="3"
-          fill="#8b5cf6"
-          filter="url(#glow)"
-          style={{
-            cy: useTransform(scrollYProgress, [0, 1], [0, window.innerHeight - 40]),
-          }}
-          transition={{ delay: 0.1 }}
-        />
-        <motion.circle
-          cx="8"
-          cy="0"
-          r="2"
-          fill="#ec4899"
-          filter="url(#glow)"
-          style={{
-            cy: useTransform(scrollYProgress, [0, 1], [0, window.innerHeight - 60]),
-          }}
-          transition={{ delay: 0.2 }}
-        />
-      </svg>
-
-      {/* Floating String Particles */}
-      <motion.div
-        className="absolute w-6 h-6 bg-gradient-to-r from-blue-400 via-purple-400 to-pink-400 rounded-full opacity-80 shadow-lg"
-        style={{
-          x: mousePosition.x - 12,
-          y: mousePosition.y - 12,
-        }}
-        transition={{ type: "spring", stiffness: 500, damping: 30 }}
-      />
-      
-      {/* Scroll Progress Indicator */}
-      <motion.div
-        className="fixed top-4 right-4 w-16 h-16 rounded-full border-2 border-neutral-600 bg-neutral-900/50 backdrop-blur-sm flex items-center justify-center"
-        style={{ opacity }}
-      >
-        <motion.div
-          className="w-12 h-12 rounded-full border-2 border-transparent border-t-blue-500 border-r-purple-500 border-b-pink-500 border-l-green-500"
-          style={{ rotate: useTransform(scrollYProgress, [0, 1], [0, 360]) }}
-        />
-        <motion.div
-          className="absolute text-xs font-bold text-neutral-300"
-          style={{ opacity: useTransform(scrollYProgress, [0, 0.5, 1], [0, 1, 0]) }}
-        >
-          {Math.round(scrollYProgress.get() * 100)}%
-        </motion.div>
-      </motion.div>
-
-      {/* Animated Curved Progress Bar */}
-      <motion.div
-        className="fixed bottom-8 left-8 right-8 h-2 bg-gradient-to-r from-transparent via-blue-500 to-transparent rounded-full overflow-hidden"
-        style={{ opacity }}
-      >
-        <motion.div
-          className="h-full bg-gradient-to-r from-blue-500 via-purple-500 to-pink-500 rounded-full"
-          style={{ scaleX: pathLength, transformOrigin: "left" }}
-        />
-      </motion.div>
-    </div>
-  );
-};
 
 export default function AboutMe() {
   const { skills, projects, certifications, achievements, contact, name, title, objective } = profileData;
@@ -229,15 +105,14 @@ export default function AboutMe() {
   return (
     <SmoothScroll>
       <main className="relative min-h-screen w-full overflow-x-hidden text-neutral-100">
-        {/* Animated Scrolling Following String */}
-        <AnimatedScrollString />
+        
         
         {/* Subtle 3D background (dynamically loaded) */}
         <Simple3DBackgroundDynamic />
 
-        {/* HERO */}
-        <section className="relative z-10 max-w-7xl mx-auto px-5 md:px-10 pt-28 md:pt-36 pb-24">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 items-center">
+                 {/* HERO */}
+         <section className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-10 pt-20 sm:pt-28 md:pt-36 pb-16 sm:pb-24">
+           <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-10 items-center">
             <motion.div variants={container} initial="hidden" animate="visible" className="space-y-6">
               <motion.p variants={item} className="inline-flex items-center gap-2 text-sm text-neutral-300/80">
                 <span className="h-2 w-2 rounded-full bg-green-500 animate-pulse" />
@@ -297,7 +172,7 @@ export default function AboutMe() {
         </section>
 
         {/* ABOUT ME (above skills) */}
-        <section id="about" className="relative z-10 max-w-7xl mx-auto px-5 md:px-10 pb-6 md:pb-10">
+        <section id="about" className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-10 pb-6 md:pb-10">
           <motion.div
             variants={container}
             initial="hidden"
@@ -333,7 +208,7 @@ export default function AboutMe() {
         </section>
 
         {/* SKILLS - NEW UNIQUE LAYOUT */}
-        <section id="skills" className="relative z-10 max-w-7xl mx-auto px-5 md:px-10 py-20">
+        <section id="skills" className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-10 py-16 sm:py-20">
           <motion.div variants={container} initial="hidden" whileInView="visible" viewport={{ once: true, amount: 0.2 }}>
             <motion.h2 variants={item} className="text-4xl md:text-5xl font-bold mb-16 text-center">
               <AuroraText className="px-2">Technical Skills</AuroraText>
@@ -496,7 +371,7 @@ export default function AboutMe() {
         </section>
 
         {/* PROJECTS */}
-        <section id="projects" className="relative z-10 max-w-7xl mx-auto px-5 md:px-10 py-16">
+        <section id="projects" className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-10 py-16">
           <motion.div variants={container} initial="hidden" whileInView="visible" viewport={{ once: true, amount: 0.2 }}>
             <motion.h2 variants={item} className="text-3xl md:text-4xl font-bold mb-8">
               <AuroraText className="px-1">Projects</AuroraText>
@@ -561,7 +436,7 @@ export default function AboutMe() {
         </section>
 
         {/* HIGHLIGHTS - ENHANCED */}
-        <section id="highlights" className="relative z-10 max-w-7xl mx-auto px-5 md:px-10 py-20">
+        <section id="highlights" className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-10 py-16 sm:py-20">
           <motion.div variants={container} initial="hidden" whileInView="visible" viewport={{ once: true, amount: 0.2 }}>
             <motion.h2 variants={item} className="text-4xl md:text-5xl font-bold mb-16 text-center">
               <AuroraText className="px-2">Highlights & Achievements</AuroraText>
@@ -695,7 +570,7 @@ export default function AboutMe() {
         </section>
 
         {/* CONTACT - ENHANCED */}
-        <section id="contact" className="relative z-10 max-w-7xl mx-auto px-5 md:px-10 py-20">
+        <section id="contact" className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-10 py-16 sm:py-20">
           <motion.div variants={container} initial="hidden" whileInView="visible" viewport={{ once: true, amount: 0.2 }}>
             <motion.h2 variants={item} className="text-4xl md:text-5xl font-bold mb-16 text-center">
               <AuroraText className="px-2">Let&apos;s Connect</AuroraText>
@@ -859,9 +734,9 @@ export default function AboutMe() {
           © {new Date().getFullYear()} {name}. All rights reserved.
         </footer>
 
-        <div className="fixed bottom-8 left-0 right-0 z-20">
-          <BottomNavbar />
-        </div>
+                 <div className="fixed bottom-4 left-0 right-0 z-50">
+           <BottomNavbar />
+         </div>
       </main>
     </SmoothScroll>
   );
