@@ -11,6 +11,18 @@ export default function Layout({ children }: LayoutProps) {
   return (
     <div className="min-h-screen w-full  items-center justify-center font-sans ">
           <div
+            className="absolute inset-0 z-0 block dark:hidden"
+            style={{
+              background: "white",
+            }}
+          />
+          <div
+            className="absolute inset-0 z-0 block dark:hidden"
+            style={{
+              background: "white",
+            }}
+          />
+          <div
             className="absolute inset-0 z-0 hidden dark:block"
             style={{
               background:
