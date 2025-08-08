@@ -74,10 +74,15 @@ function Scene() {
 export default function InteractiveModel() {
   return (
     <div className="absolute top-0 right-0 w-full lg:w-1/2 h-full pointer-events-none z-0">
-      <Canvas>
+      <Canvas
+        dpr={[1, 1]}
+        gl={{ antialias: false, powerPreference: "low-power" }}
+        camera={{ fov: 60 }}
+        frameloop="demand"
+      >
         <PerspectiveCamera makeDefault position={[0, 0, 8]} fov={60} />
         <Scene />
-        <OrbitControls enablePan={false} enableZoom={false} enableRotate={false} autoRotate autoRotateSpeed={0.5} />
+        <OrbitControls enablePan={false} enableZoom={false} enableRotate={false} autoRotate autoRotateSpeed={0.3} />
       </Canvas>
     </div>
   );

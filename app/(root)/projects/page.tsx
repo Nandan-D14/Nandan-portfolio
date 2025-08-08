@@ -8,10 +8,10 @@ import { tilelineData } from "@/public/data";
 export default function ProjectPage() {
   
   return (
-    <div className="absolute  mt-70 w-full overflow-clip">
-      <AnimatePresence >
-      <Timeline data={tilelineData} />
+    <main className="relative z-10 min-h-screen w-full">
+      <AnimatePresence>
+        <Timeline data={tilelineData} />
       </AnimatePresence>
-    </div>
+    </main>
   );
 }

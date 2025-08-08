@@ -69,8 +69,14 @@ function Simple3DScene() {
 
 export default function Simple3DBackground() {
   return (
-    <div className="fixed inset-0 -z-10 opacity-50">
-      <Canvas camera={{ position: [0, 0, 6], fov: 50 }} style={{ background: "transparent" }} dpr={[1, 1.5]}>
+    <div className="fixed inset-0 -z-10 opacity-40">
+      <Canvas
+        camera={{ position: [0, 0, 6], fov: 50 }}
+        style={{ background: "transparent" }}
+        dpr={[1, 1]}
+        gl={{ antialias: false, powerPreference: "low-power" }}
+        frameloop="demand"
+      >
         <Simple3DScene />
       </Canvas>
     </div>
