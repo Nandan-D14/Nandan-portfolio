@@ -1,4 +1,3 @@
-import React from "react";
 /**
  * Note: Use position fixed according to your needs
  * Desktop navbar is better positioned at the bottom
@@ -49,7 +48,7 @@ const FloatingDockMobile = ({
         {open && (
           <motion.div
             layoutId="nav"
-            className="absolute bottom-full mb-2 left-1/2 transform -translate-x-1/2 flex flex-col gap-2"
+            className="absolute inset-x-0 bottom-full mb-2 flex flex-col gap-2"
           >
             {items.map((item, idx) => (
               <motion.div
@@ -71,9 +70,9 @@ const FloatingDockMobile = ({
                 <a
                   href={item.href}
                   key={item.title}
-                  className="flex h-12 w-12 items-center justify-center rounded-full bg-neutral-900/90 backdrop-blur-sm border border-neutral-700 shadow-lg"
+                  className="flex h-10 w-10 items-center justify-center rounded-full  bg-neutral-900"
                 >
-                  <div className="h-5 w-5">{item.icon}</div>
+                  <div className="h-4 w-4">{item.icon}</div>
                 </a>
               </motion.div>
             ))}
@@ -82,9 +81,9 @@ const FloatingDockMobile = ({
       </AnimatePresence>
       <button
         onClick={() => setOpen(!open)}
-        className="flex h-12 w-12 items-center justify-center rounded-full bg-neutral-800/90 backdrop-blur-sm border border-neutral-700 shadow-lg"
+        className="flex h-10 w-10 items-center justify-center rounded-full  bg-neutral-800"
       >
-        <IconLayoutNavbarCollapse className="h-6 w-6 text-neutral-300" />
+        <IconLayoutNavbarCollapse className="h-5 w-5  text-neutral-400" />
       </button>
     </div>
   );
@@ -97,38 +96,18 @@ const FloatingDockDesktop = ({
   items: { title: string; icon: React.ReactNode; href: string }[];
   className?: string;
 }) => {
-  const mouseX = useMotionValue(Infinity);
+  let mouseX = useMotionValue(Infinity);
   return (
     <motion.div
-      initial={{ y: 100, opacity: 0 }}
-      animate={{ y: 0, opacity: 1 }}
-      transition={{ 
-        type: "spring", 
-        stiffness: 100, 
-        damping: 20, 
-        delay: 0.5 
-      }}
       onMouseMove={(e) => mouseX.set(e.pageX)}
       onMouseLeave={() => mouseX.set(Infinity)}
       className={cn(
-        "mx-auto hidden h-16 items-end gap-4 backdrop-blur-md saturate-200 rounded-2xl px-4 pb-3 border border-neutral-700 md:flex bg-neutral-900/70 shadow-xl",
+        "mx-auto hidden h-16 items-end gap-4 rounded-2xl  px-4 pb-3 md:flex bg-gray-200/30 backdrop-blur-3xl saturate-150",
         className,
       )}
     >
-      {items.map((item, index) => (
-        <motion.div
-          key={item.title}
-          initial={{ scale: 0, opacity: 0 }}
-          animate={{ scale: 1, opacity: 1 }}
-          transition={{ 
-            delay: 0.7 + index * 0.1, 
-            type: "spring", 
-            stiffness: 200, 
-            damping: 15 
-          }}
-        >
-          <IconContainer mouseX={mouseX} {...item} />
-        </motion.div>
+      {items.map((item) => (
+        <IconContainer mouseX={mouseX} key={item.title} {...item} />
       ))}
     </motion.div>
   );
@@ -145,41 +124,41 @@ function IconContainer({
   icon: React.ReactNode;
   href: string;
 }) {
-  const ref = useRef<HTMLDivElement>(null);
+  let ref = useRef<HTMLDivElement>(null);
 
-  const distance = useTransform(mouseX, (val) => {
-    const bounds = ref.current?.getBoundingClientRect() ?? { x: 0, width: 0 };
+  let distance = useTransform(mouseX, (val) => {
+    let bounds = ref.current?.getBoundingClientRect() ?? { x: 0, width: 0 };
 
     return val - bounds.x - bounds.width / 2;
   });
 
-  const widthTransform = useTransform(distance, [-150, 0, 150], [40, 80, 40]);
-  const heightTransform = useTransform(distance, [-150, 0, 150], [40, 80, 40]);
+  let widthTransform = useTransform(distance, [-150, 0, 150], [40, 80, 40]);
+  let heightTransform = useTransform(distance, [-150, 0, 150], [40, 80, 40]);
 
-  const widthTransformIcon = useTransform(distance, [-150, 0, 150], [20, 40, 20]);
-  const heightTransformIcon = useTransform(
+  let widthTransformIcon = useTransform(distance, [-150, 0, 150], [20, 40, 20]);
+  let heightTransformIcon = useTransform(
     distance,
     [-150, 0, 150],
     [20, 40, 20],
   );
 
-  const width = useSpring(widthTransform, {
+  let width = useSpring(widthTransform, {
     mass: 0.1,
     stiffness: 150,
     damping: 12,
   });
-  const height = useSpring(heightTransform, {
+  let height = useSpring(heightTransform, {
     mass: 0.1,
     stiffness: 150,
     damping: 12,
   });
 
-  const widthIcon = useSpring(widthTransformIcon, {
+  let widthIcon = useSpring(widthTransformIcon, {
     mass: 0.1,
     stiffness: 150,
     damping: 12,
   });
-  const heightIcon = useSpring(heightTransformIcon, {
+  let heightIcon = useSpring(heightTransformIcon, {
     mass: 0.1,
     stiffness: 150,
     damping: 12,
@@ -194,7 +173,7 @@ function IconContainer({
         style={{ width, height }}
         onMouseEnter={() => setHovered(true)}
         onMouseLeave={() => setHovered(false)}
-        className="relative flex aspect-square items-center justify-center rounded-full bg-neutral-800 border-1 border-neutral-600 backdrop-blur-md saturate-200"
+        className="relative flex aspect-square items-center justify-center rounded-full  bg-neutral-700  backdrop-blur-3xl saturate-150"
       >
         <AnimatePresence>
           {hovered && (
@@ -202,7 +181,7 @@ function IconContainer({
               initial={{ opacity: 0, y: 10, x: "-50%" }}
               animate={{ opacity: 1, y: 0, x: "-50%" }}
               exit={{ opacity: 0, y: 2, x: "-50%" }}
-              className="absolute -top-8 left-1/2 w-fit rounded-md border px-2 py-0.5 text-xs whitespace-pre border-neutral-900 bg-neutral-800 text-white"
+              className="absolute -top-8 left-1/2 w-fit rounded-md border  px-2 py-0.5 text-xs whitespace-pre border-neutral-900 bg-neutral-800 text-white"
             >
               {title}
             </motion.div>
@@ -218,7 +197,6 @@ function IconContainer({
     </a>
   );
 }
-
 
 
 export default function BottomNavbar() {
@@ -249,7 +227,7 @@ export default function BottomNavbar() {
       icon: (
         <IconBook2 className="h-full w-full text-neutral-300" />
       ),
-      href: "/aboutme#projects",
+      href: "/projects",
     },
     {
       title: "Contact",
@@ -260,9 +238,10 @@ export default function BottomNavbar() {
     },
   ];
   return (
-    <div className="fixed bottom-4 left-1/2 transform -translate-x-1/2 z-50 w-full max-w-md px-4">
+    <div className="fixed bottom-[max(1rem,env(safe-area-inset-bottom))] left-1/2 -translate-x-1/2 z-50 w-full md:max-w-90 px-4">
       <FloatingDock
-        mobileClassName="translate-y-0" 
+        mobileClassName="translate-y-0"
+        
         items={links}
       />
     </div>

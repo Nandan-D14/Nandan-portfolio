@@ -34,11 +34,11 @@ export const Timeline = ({ data }: { data: TimelineEntry[] }) => {
 
   return (
     <div
-      className="w-full bg-gradient-to-b from-neutral-900/30 to-neutral-900 font-sans md:px-10"
+      className="w-full bg-gradient-to-b from-neutral-900/30 to-neutral-900 font-sans "
       ref={containerRef}
     >
-      <div className="max-w-7xl mx-auto py-20 px-4 md:px-8 lg:px-10">
-        <h1 className="text-6xl md:text-8xl text-pink-600 font-bold mb-4  max-w-6xl">
+      <div className="max-w-7xl mx-auto py-20 px-4 md:px-8 lg:px-10 md:h-screen ">
+        <h1 className="text-6xl md:text-8xl text-pink-600 font-bold mb-4 mt-70  max-w-6xl">
           My Projects
         </h1>
         <p className="text-neutral-300 text-sm md:text-base max-w-sm">
