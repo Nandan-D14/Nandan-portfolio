@@ -5,15 +5,22 @@
  **/
 
 import { cn } from "@/lib/utils";
-import { IconBook2, IconCandle, IconExchange, IconHome, IconLayoutNavbarCollapse, IconTools } from "@tabler/icons-react";
+import {
+  IconBook2,
+  IconCandle,
+  IconExchange,
+  IconHome,
+  IconLayoutNavbarCollapse,
+  IconTools,
+} from "@tabler/icons-react";
 import {
   AnimatePresence,
   MotionValue,
-  motion,
   useMotionValue,
   useSpring,
   useTransform,
 } from "motion/react";
+import { motion } from "framer-motion";
 
 import { useRef, useState } from "react";
 
@@ -48,6 +55,8 @@ const FloatingDockMobile = ({
         {open && (
           <motion.div
             layoutId="nav"
+            transition={{ type: "spring" }}
+            animate={{ scale: 1.2 }}
             className="absolute inset-x-0 bottom-full mb-2 flex flex-col gap-2"
           >
             {items.map((item, idx) => (
@@ -103,7 +112,7 @@ const FloatingDockDesktop = ({
       onMouseLeave={() => mouseX.set(Infinity)}
       className={cn(
         "mx-auto hidden h-16 items-end gap-4 rounded-2xl  px-4 pb-3 md:flex bg-gray-200/30 backdrop-blur-3xl saturate-150",
-        className,
+        className
       )}
     >
       {items.map((item) => (
@@ -139,7 +148,7 @@ function IconContainer({
   let heightTransformIcon = useTransform(
     distance,
     [-150, 0, 150],
-    [20, 40, 20],
+    [20, 40, 20]
   );
 
   let width = useSpring(widthTransform, {
@@ -198,52 +207,37 @@ function IconContainer({
   );
 }
 
-
 export default function BottomNavbar() {
   const links = [
     {
       title: "Home",
-      icon: (
-        <IconHome className="h-full w-full text-neutral-300" />
-      ),
+      icon: <IconHome className="h-full w-full text-neutral-300" />,
       href: "/",
     },
     {
       title: "About",
-      icon: (
-        <IconExchange className="h-full w-full text-neutral-300" />
-      ),
-      href: "/aboutme#about",
+      icon: <IconExchange className="h-full w-full text-neutral-300" />,
+      href: "/aboutme",
     },
     {
       title: "Skills",
-      icon: (
-        <IconCandle className="h-full w-full text-neutral-300" />
-      ),
+      icon: <IconCandle className="h-full w-full text-neutral-300" />,
       href: "/aboutme#skills",
     },
     {
       title: "Projects",
-      icon: (
-        <IconBook2 className="h-full w-full text-neutral-300" />
-      ),
+      icon: <IconBook2 className="h-full w-full text-neutral-300" />,
       href: "/projects",
     },
     {
       title: "Contact",
-      icon: (
-        <IconTools className="h-full w-full text-neutral-300" />
-      ),
+      icon: <IconTools className="h-full w-full text-neutral-300" />,
       href: "/aboutme#contact",
     },
   ];
   return (
-    <div className="fixed bottom-[max(1rem,env(safe-area-inset-bottom))] left-1/2 -translate-x-1/2 z-50 w-full md:max-w-90 px-4">
-      <FloatingDock
-        mobileClassName="translate-y-0"
-        
-        items={links}
-      />
+    <div className="fixed bottom-[max(1rem,env(safe-area-inset-bottom))]  left-1/2 -translate-x-1/2 z-50 w-auto  px-4">
+      <FloatingDock mobileClassName="translate-y-0" items={links} />
     </div>
   );
 }

@@ -371,7 +371,7 @@ export default function AboutMe() {
         </section>
 
         {/* PROJECTS */}
-        <section id="projects" className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-10 py-16">
+        {/* <section id="projects" className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-10 py-16">
           <motion.div variants={container} initial="hidden" whileInView="visible" viewport={{ once: true, amount: 0.2 }}>
             <motion.h2 variants={item} className="text-3xl md:text-4xl font-bold mb-8">
               <AuroraText className="px-1">Projects</AuroraText>
@@ -433,7 +433,7 @@ export default function AboutMe() {
               ))}
             </div>
           </motion.div>
-        </section>
+        </section> */}
 
         {/* HIGHLIGHTS - ENHANCED */}
         <section id="highlights" className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-10 py-16 sm:py-20">
