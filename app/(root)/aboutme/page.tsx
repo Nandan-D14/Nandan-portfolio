@@ -378,10 +378,10 @@ export default function AboutMe() {
             </motion.h2>
             
             {/* STATS CARDS */}
-            <motion.div variants={item} className="grid grid-cols-2 md:grid-cols-4 gap-6 mb-16">
+            <motion.div variants={item} className="grid grid-cols-2 md:grid-cols-3 gap-6 mb-16">
               <motion.div 
                 whileHover={{ scale: 1.05, y: -5 }}
-                className="relative bg-gradient-to-br from-gray-900/40 to-gray-800/20 backdrop-blur-sm border border-neutral-700rounded-2xl p-6 text-center group"
+                className="relative bg-gradient-to-br from-gray-900/40 to-gray-800/20 backdrop-blur-sm border border-neutral-700 rounded-2xl p-6 text-center group"
               >
                 <div className="absolute inset-0 bg-gradient-to-r from-blue-500/10 to-purple-500/10 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
                 <div className="relative z-10">

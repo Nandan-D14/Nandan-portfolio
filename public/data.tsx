@@ -64,54 +64,47 @@ export const Certifications = {
     'DSA Problem Solving' :'HackerRank',
 }
 
-const TechStack = [
-  {
-    id: 1,
-    name: "React.js",
-    image:
-      "https://www.google.com/url?sa=i&url=https%3A%2F%2Fbetterprogramming.pub%2Fgetting-started-with-react-js-part-1-59598ef17780",
-  },
-  {
-    id: 2,
-    name: "Node.js",
-    image:
-      "https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8YXZhdGFyfGVufDB8fDB8fHww&auto=format&fit=crop&w=800&q=60",
-  },
-  {
-    id: 3,
-    name: "Express.js",
-    image:
-      "https://images.unsplash.com/photo-1580489944761-15a19d654956?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NXx8YXZhdGFyfGVufDB8fDB8fHww&auto=format&fit=crop&w=800&q=60",
-  },
-  {
-    id: 4,
-    name: "Next.js",
-    image:
-      "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTB8fGF2YXRhcnxlbnwwfHwwfHx8MA%3D%3D&auto=format&fit=crop&w=800&q=60",
-  },
-  {
-    id: 5,
-    name: "Python",
-    image:
-      "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=3540&q=80",
-  },
-  {
-    id: 6,
-    name: "TypeScript",
-    image:
-      "https://images.unsplash.com/photo-1544725176-7c40e5a71c5e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=3534&q=80",
-  },
-];
+const techIcons = {
+  React: { id: 1, name: "React.js", image: "https://raw.githubusercontent.com/devicons/devicon/master/icons/react/react-original.svg" },
+  Next: { id: 2, name: "Next.js", image: "https://raw.githubusercontent.com/devicons/devicon/master/icons/nextjs/nextjs-original.svg" },
+  Node: { id: 3, name: "Node.js", image: "https://raw.githubusercontent.com/devicons/devicon/master/icons/nodejs/nodejs-original.svg" },
+  Express: { id: 4, name: "Express.js", image: "https://raw.githubusercontent.com/devicons/devicon/master/icons/express/express-original.svg" },
+  MongoDB: { id: 5, name: "MongoDB", image: "https://raw.githubusercontent.com/devicons/devicon/master/icons/mongodb/mongodb-original.svg" },
+  Python: { id: 6, name: "Python", image: "https://raw.githubusercontent.com/devicons/devicon/master/icons/python/python-original.svg" },
+  TypeScript: { id: 7, name: "TypeScript", image: "https://raw.githubusercontent.com/devicons/devicon/master/icons/typescript/typescript-original.svg" },
+  Tailwind: { id: 8, name: "Tailwind CSS", image: "https://raw.githubusercontent.com/devicons/devicon/master/icons/tailwindcss/tailwindcss-plain.svg" },
+  Firebase: { id: 9, name: "Firebase", image: "https://www.vectorlogo.zone/logos/firebase/firebase-icon.svg" },
+  Docker: { id: 10, name: "Docker", image: "https://raw.githubusercontent.com/devicons/devicon/master/icons/docker/docker-original.svg" },
+  Git: { id: 11, name: "Git", image: "https://raw.githubusercontent.com/devicons/devicon/master/icons/git/git-original.svg" },
+  OpenCV: { id: 12, name: "OpenCV", image: "https://raw.githubusercontent.com/devicons/devicon/master/icons/opencv/opencv-original.svg" },
+  Arduino: { id: 13, name: "Arduino", image: "https://raw.githubusercontent.com/devicons/devicon/master/icons/arduino/arduino-original.svg" },
+  Tkinter: { id: 14, name: "Tkinter", image: "https://raw.githubusercontent.com/devicons/devicon/master/icons/python/python-original.svg" }
+};
 
 export const tilelineData = [
   {
     title: "Explore World",
     content: (
       <motion.div
-        initial={{ y: 50, opacity: 0 }}
-        whileInView={{ y: 0, opacity: 1 }}
+        initial={{ 
+          y: 100,
+          opacity: 0,
+          scale: 0.9,
+          filter: "blur(5px)"
+        }}
+        whileInView={{ 
+          y: 0,
+          opacity: 1,
+          scale: 1,
+          filter: "blur(0px)"
+        }}
         viewport={{ once: true, amount: 0.3 }}
-        transition={{ duration: 0.6, delay: 0.2 }}
+        transition={{ 
+          type: "spring",
+          duration: 1,
+          delay: 0.2,
+          bounce: 0.3
+        }}
       >
         {/* ...existing code... */}
         <p className="mb-8 md:text-xl text-md font-normal text-neutral-200">
@@ -161,7 +154,13 @@ export const tilelineData = [
           />
         </div>
         <div className="flex flex-row items-center mt-10 w-full">
-          <AnimatedTooltip items={TechStack} />
+          <AnimatedTooltip items={[
+            techIcons.React,
+            techIcons.Node,
+            techIcons.Express,
+            techIcons.MongoDB,
+            techIcons.Tailwind
+          ]} />
         </div>
       </motion.div>
     ),
@@ -170,10 +169,25 @@ export const tilelineData = [
     title: "Prompt Pallete",
     content: (
       <motion.div
-        initial={{ y: 50, opacity: 0 }}
-        whileInView={{ y: 0, opacity: 1 }}
+        initial={{ 
+          y: 100,
+          opacity: 0,
+          scale: 0.9,
+          filter: "blur(5px)"
+        }}
+        whileInView={{ 
+          y: 0,
+          opacity: 1,
+          scale: 1,
+          filter: "blur(0px)"
+        }}
         viewport={{ once: true, amount: 0.3 }}
-        transition={{ duration: 0.6, delay: 0.2 }}
+        transition={{ 
+          type: "spring",
+          duration: 1,
+          delay: 0.3,
+          bounce: 0.3
+        }}
       >
         {/* ...existing code... */}
         <p className="mb-8 md:text-xl text-md font-normal text-neutral-200">
@@ -228,7 +242,12 @@ export const tilelineData = [
           />
         </div>
         <div className="flex flex-row items-center mt-10 w-full">
-          <AnimatedTooltip items={TechStack} />
+          <AnimatedTooltip items={[
+            techIcons.Next,
+            techIcons.TypeScript,
+            techIcons.Tailwind,
+            techIcons.Firebase
+          ]} />
         </div>
       </motion.div>
     ),
@@ -237,10 +256,25 @@ export const tilelineData = [
     title: "Type Me",
     content: (
       <motion.div
-        initial={{ y: 50, opacity: 0 }}
-        whileInView={{ y: 0, opacity: 1 }}
+        initial={{ 
+          y: 100,
+          opacity: 0,
+          scale: 0.9,
+          filter: "blur(5px)"
+        }}
+        whileInView={{ 
+          y: 0,
+          opacity: 1,
+          scale: 1,
+          filter: "blur(0px)"
+        }}
         viewport={{ once: true, amount: 0.3 }}
-        transition={{ duration: 0.6, delay: 0.2 }}
+        transition={{ 
+          type: "spring",
+          duration: 1,
+          delay: 0.4,
+          bounce: 0.3
+        }}
       >
         <p className="mb-8 md:text-xl text-md font-normal text-neutral-200">
           Type me is simple website that i made to practice speed typing , you
@@ -274,7 +308,10 @@ export const tilelineData = [
           />
         </div>
         <div className="flex flex-row items-center mt-10 w-full">
-          <AnimatedTooltip items={TechStack} />
+          <AnimatedTooltip items={[
+            techIcons.React,
+            techIcons.Tailwind
+          ]} />
         </div>
       </motion.div>
     ),
@@ -282,7 +319,27 @@ export const tilelineData = [
   {
     title: "Gesture Control",
     content: (
-      <div>
+      <motion.div
+        initial={{ 
+          y: 100,
+          opacity: 0,
+          scale: 0.9,
+          filter: "blur(5px)"
+        }}
+        whileInView={{ 
+          y: 0,
+          opacity: 1,
+          scale: 1,
+          filter: "blur(0px)"
+        }}
+        viewport={{ once: true, amount: 0.3 }}
+        transition={{ 
+          type: "spring",
+          duration: 1,
+          delay: 0.5,
+          bounce: 0.3
+        }}
+      >
         <p className="mb-8 md:text-xl text-md font-normal text-neutral-200">
           A real-time hand gesture and distance-sensor-based mouse, scroll, and
           volume controller using Python, OpenCV, MediaPipe, and Arduino. This
@@ -340,15 +397,39 @@ export const tilelineData = [
           />
         </div>
         <div className="flex flex-row items-center mt-10 w-full">
-          <AnimatedTooltip items={TechStack} />
+          <AnimatedTooltip items={[
+            techIcons.Python,
+            techIcons.OpenCV,
+            techIcons.Arduino
+          ]} />
         </div>
-      </div>
+      </motion.div>
     ),
   },
   {
     title: "Voice Assistant",
     content: (
-      <div>
+      <motion.div
+        initial={{ 
+          y: 100,
+          opacity: 0,
+          scale: 0.9,
+          filter: "blur(5px)"
+        }}
+        whileInView={{ 
+          y: 0,
+          opacity: 1,
+          scale: 1,
+          filter: "blur(0px)"
+        }}
+        viewport={{ once: true, amount: 0.3 }}
+        transition={{ 
+          type: "spring",
+          duration: 1,
+          delay: 0.6,
+          bounce: 0.3
+        }}
+      >
         <p className="mb-8 md:text-xl text-md font-normal text-neutral-200">
           A comprehensive voice assistant built with Python that integrates
           Google's Gemini AI for intelligent conversations and responses.
@@ -403,15 +484,38 @@ export const tilelineData = [
           </div>
         </div>
         <div className="flex flex-row items-center mt-10 w-full">
-          <AnimatedTooltip items={TechStack} />
+          <AnimatedTooltip items={[
+            techIcons.Python,
+            techIcons.Git
+          ]} />
         </div>
-      </div>
+      </motion.div>
     ),
   },
   {
     title: "Weather Assistant",
     content: (
-      <div>
+      <motion.div
+        initial={{ 
+          y: 100,
+          opacity: 0,
+          scale: 0.9,
+          filter: "blur(5px)"
+        }}
+        whileInView={{ 
+          y: 0,
+          opacity: 1,
+          scale: 1,
+          filter: "blur(0px)"
+        }}
+        viewport={{ once: true, amount: 0.3 }}
+        transition={{ 
+          type: "spring",
+          duration: 1,
+          delay: 0.7,
+          bounce: 0.3
+        }}
+      >
         <p className="mb-8 md:text-xl text-md font-normal text-neutral-200">
           This is a Python-based weather application with a graphical interface
           built using Tkinter. It provides real-time weather updates, a 7-day
@@ -458,15 +562,38 @@ export const tilelineData = [
           </div>
         </div>
         <div className="flex flex-row items-center mt-10 w-full">
-          <AnimatedTooltip items={TechStack} />
+          <AnimatedTooltip items={[
+            techIcons.Python,
+            techIcons.Tkinter
+          ]} />
         </div>
-      </div>
+      </motion.div>
     ),
   },
   {
     title: "Search Pro",
     content: (
-      <div>
+      <motion.div
+        initial={{ 
+          y: 100,
+          opacity: 0,
+          scale: 0.9,
+          filter: "blur(5px)"
+        }}
+        whileInView={{ 
+          y: 0,
+          opacity: 1,
+          scale: 1,
+          filter: "blur(0px)"
+        }}
+        viewport={{ once: true, amount: 0.3 }}
+        transition={{ 
+          type: "spring",
+          duration: 1,
+          delay: 0.8,
+          bounce: 0.3
+        }}
+      >
         <p className="mb-8 md:text-xl text-md font-normal text-neutral-200">
           Search Pro Extension is a modern, customizable Chrome extension that
           provides a sleek, glassy search interface for quick access to multiple
@@ -514,15 +641,38 @@ export const tilelineData = [
           />
         </div>
         <div className="flex flex-row items-center mt-10 w-full">
-          <AnimatedTooltip items={TechStack} />
+          <AnimatedTooltip items={[
+            techIcons.TypeScript,
+            techIcons.Git
+          ]} />
         </div>
-      </div>
+      </motion.div>
     ),
   },
   {
     title: "Skill Bridge",
     content: (
-      <div>
+      <motion.div
+        initial={{ 
+          y: 100,
+          opacity: 0,
+          scale: 0.9,
+          filter: "blur(5px)"
+        }}
+        whileInView={{ 
+          y: 0,
+          opacity: 1,
+          scale: 1,
+          filter: "blur(0px)"
+        }}
+        viewport={{ once: true, amount: 0.3 }}
+        transition={{ 
+          type: "spring",
+          duration: 1,
+          delay: 0.9,
+          bounce: 0.3
+        }}
+      >
         <p className="mb-8 md:text-xl text-md font-normal text-neutral-200">
           React Native app connecting skilled professionals.
         </p>
@@ -557,15 +707,38 @@ export const tilelineData = [
           />
         </div>
         <div className="flex flex-row items-center mt-10 w-full">
-          <AnimatedTooltip items={TechStack} />
+          <AnimatedTooltip items={[
+            techIcons.React,
+            techIcons.Firebase
+          ]} />
         </div>
-      </div>
+      </motion.div>
     ),
   },
   {
     title: "My Portfolio",
     content: (
-      <div>
+      <motion.div
+        initial={{ 
+          y: 100,
+          opacity: 0,
+          scale: 0.9,
+          filter: "blur(5px)"
+        }}
+        whileInView={{ 
+          y: 0,
+          opacity: 1,
+          scale: 1,
+          filter: "blur(0px)"
+        }}
+        viewport={{ once: true, amount: 0.3 }}
+        transition={{ 
+          type: "spring",
+          duration: 1,
+          delay: 1,
+          bounce: 0.3
+        }}
+      >
         <p className="mb-8 md:text-xl text-md font-normal text-neutral-200">
           My Portfolio is a showcase of my projects and skills, built with
           Next.JS
@@ -603,7 +776,7 @@ export const tilelineData = [
           <div className="flex flex-row items-center mt-10 w-full">
             <AnimatedTooltip items={TechStack} />
           </div> */}
-      </div>
+      </motion.div>
     ),
   },
 ];
