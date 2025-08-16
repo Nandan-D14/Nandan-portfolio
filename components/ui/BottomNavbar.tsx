@@ -182,7 +182,7 @@ function IconContainer({
         style={{ width, height }}
         onMouseEnter={() => setHovered(true)}
         onMouseLeave={() => setHovered(false)}
-        className="relative flex aspect-square items-center justify-center rounded-full  bg-neutral-700  backdrop-blur-3xl saturate-150"
+        className="relative flex aspect-square items-center justify-center rounded-full  bg-neutral-900  backdrop-blur-3xl saturate-150"
       >
         <AnimatePresence>
           {hovered && (

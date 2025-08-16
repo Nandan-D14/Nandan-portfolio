@@ -160,10 +160,12 @@ export const profileData: ProfileData = {
   ],
   achievements: [
     "Participated in multiple hackathons and coding competitions",
-    "Awarded 'Good Coder' badge in college contest",
-    "Placed 5th in inter-college coding competition",
+    "Awarded 'Good Coder' badge in college contest and Placed 5th out of 200+ participants",
     "Active contributor to open-source projects on GitHub",
-    "Built and deployed 8+ full-stack web applications",
+    "Built and deployed several real-world and personal projects",
+    "Solving DSA problems on LeetCode and HackerRank",
+    "Participated in college tech fests and workshops",
+    "Engaged in peer coding sessions and study groups",
   ],
   contact: {
     phone: "+91 7019475709",

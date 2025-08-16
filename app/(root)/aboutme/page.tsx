@@ -119,7 +119,7 @@ export default function AboutMe() {
                 Available for work
               </motion.p>
               <motion.h1 variants={item} className="text-4xl md:text-6xl font-extrabold leading-tight">
-                Hi, I’m <AuroraText className="px-1">{name}</AuroraText>
+                Hi, I’m {name}
               </motion.h1>
               <motion.p variants={item} className="text-xl text-blue-300">
                 {title}
@@ -181,7 +181,7 @@ export default function AboutMe() {
             className="rounded-2xl border border-neutral-800/70 bg-gradient-to-br from-neutral-900/60 to-neutral-900/30 p-6 md:p-8"
           >
             <motion.h2 variants={item} className="text-3xl md:text-4xl font-bold mb-4">
-              <AuroraText className="px-1">About Me</AuroraText>
+              About Me
             </motion.h2>
             <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
               <motion.div variants={item} className="lg:col-span-2 leading-relaxed text-neutral-300/90">
@@ -211,7 +211,7 @@ export default function AboutMe() {
         <section id="skills" className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-10 py-16 sm:py-20">
           <motion.div variants={container} initial="hidden" whileInView="visible" viewport={{ once: true, amount: 0.2 }}>
             <motion.h2 variants={item} className="text-4xl md:text-5xl font-bold mb-16 text-center">
-              <AuroraText className="px-2">Technical Skills</AuroraText>
+              Technical Skills
             </motion.h2>
             
             {/* FLOWING SKILLS LAYOUT */}
@@ -341,7 +341,7 @@ export default function AboutMe() {
                               src={logoUrl}
                               alt={`${skill} logo`}
                               className="h-16 w-16 object-contain filter drop-shadow-lg"
-                              whileHover={{ scale: 1.2, rotate: 10 }}
+                              whileHover={{ scale: 1.2 }}
                               onError={(e) => {
                                 const target = e.target as HTMLImageElement;
                                 target.style.display = 'none';
@@ -370,94 +370,29 @@ export default function AboutMe() {
           </motion.div>
         </section>
 
-        {/* PROJECTS */}
-        {/* <section id="projects" className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-10 py-16">
-          <motion.div variants={container} initial="hidden" whileInView="visible" viewport={{ once: true, amount: 0.2 }}>
-            <motion.h2 variants={item} className="text-3xl md:text-4xl font-bold mb-8">
-              <AuroraText className="px-1">Projects</AuroraText>
-            </motion.h2>
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-              {projects.map((p) => (
-                <motion.div
-                  key={p.title}
-                  variants={item}
-                  whileHover={{ y: -4, scale: 1.01 }}
-                  className="group rounded-xl border border-neutral-800/80 bg-neutral-900/40 p-6"
-                >
-                  <div className="mb-3 flex items-start justify-between gap-3">
-                    <h3 className="text-xl font-semibold group-hover:text-blue-300 transition-colors">{p.title}</h3>
-                    <div className="flex gap-2">
-                      {p.link && (
-                        <a className="rounded p-2 text-neutral-300 hover:text-blue-300" href={p.link} target="_blank" rel="noreferrer">
-                          <IconExternalLink className="h-5 w-5" />
-                        </a>
-                      )}
-                      {p.github && (
-                        <a className="rounded p-2 text-neutral-300 hover:text-green-300" href={p.github} target="_blank" rel="noreferrer">
-                          <IconBrandGithub className="h-5 w-5" />
-                        </a>
-                      )}
-                    </div>
-                  </div>
-                  <p className="mb-4 text-neutral-300/90">{p.description}</p>
-                  <div className="flex flex-wrap gap-2">
-                    {p.tech.map((tech) => {
-                      const logoUrl = techLogos[tech];
-                      return (
-                        <motion.div
-                          key={tech}
-                          whileHover={{ scale: 1.05 }}
-                          className="flex items-center gap-1.5 rounded border border-blue-500/30 bg-blue-500/10 px-2 py-1 text-xs text-blue-200"
-                        >
-                          {logoUrl ? (
-                            <img
-                              src={logoUrl}
-                              alt={`${tech} logo`}
-                              className="h-3 w-3 object-contain"
-                              onError={(e) => {
-                                const target = e.target as HTMLImageElement;
-                                target.style.display = 'none';
-                              }}
-                            />
-                          ) : (
-                            <div className="h-3 w-3 rounded-full bg-blue-600 flex items-center justify-center">
-                              <IconCode className="h-1.5 w-1.5 text-blue-200" />
-                            </div>
-                          )}
-                          <span>{tech}</span>
-                        </motion.div>
-                      );
-                    })}
-                  </div>
-                </motion.div>
-              ))}
-            </div>
-          </motion.div>
-        </section> */}
-
         {/* HIGHLIGHTS - ENHANCED */}
         <section id="highlights" className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-10 py-16 sm:py-20">
           <motion.div variants={container} initial="hidden" whileInView="visible" viewport={{ once: true, amount: 0.2 }}>
             <motion.h2 variants={item} className="text-4xl md:text-5xl font-bold mb-16 text-center">
-              <AuroraText className="px-2">Highlights & Achievements</AuroraText>
+              Highlights & Achievements
             </motion.h2>
             
             {/* STATS CARDS */}
             <motion.div variants={item} className="grid grid-cols-2 md:grid-cols-4 gap-6 mb-16">
               <motion.div 
                 whileHover={{ scale: 1.05, y: -5 }}
-                className="relative bg-gradient-to-br from-blue-900/40 to-blue-800/20 backdrop-blur-sm border border-blue-700/50 rounded-2xl p-6 text-center group"
+                className="relative bg-gradient-to-br from-gray-900/40 to-gray-800/20 backdrop-blur-sm border border-neutral-700rounded-2xl p-6 text-center group"
               >
                 <div className="absolute inset-0 bg-gradient-to-r from-blue-500/10 to-purple-500/10 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
                 <div className="relative z-10">
-                  <div className="text-3xl font-bold text-blue-300 mb-2">{projects.length}+</div>
+                  <div className="text-3xl font-bold text-blue-300 mb-2">14+</div>
                   <div className="text-sm text-neutral-300">Projects Completed</div>
                 </div>
               </motion.div>
               
               <motion.div 
                 whileHover={{ scale: 1.05, y: -5 }}
-                className="relative bg-gradient-to-br from-green-900/40 to-green-800/20 backdrop-blur-sm border border-green-700/50 rounded-2xl p-6 text-center group"
+                className="relative bg-gradient-to-br from-gray-900/40 to-gray-800/20 backdrop-blur-sm border border-neutral-700 rounded-2xl p-6 text-center group"
               >
                 <div className="absolute inset-0 bg-gradient-to-r from-green-500/10 to-teal-500/10 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
                 <div className="relative z-10">
@@ -465,7 +400,7 @@ export default function AboutMe() {
                   <div className="text-sm text-neutral-300">Certifications</div>
                 </div>
               </motion.div>
-              
+{/*               
               <motion.div 
                 whileHover={{ scale: 1.05, y: -5 }}
                 className="relative bg-gradient-to-br from-purple-900/40 to-purple-800/20 backdrop-blur-sm border border-purple-700/50 rounded-2xl p-6 text-center group"
@@ -473,13 +408,13 @@ export default function AboutMe() {
                 <div className="absolute inset-0 bg-gradient-to-r from-purple-500/10 to-pink-500/10 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
                 <div className="relative z-10">
                   <div className="text-3xl font-bold text-purple-300 mb-2">{achievements.length}</div>
-                  <div className="text-sm text-neutral-300">Achievements</div>
+                  <div className="text-sm text-neutral-300">Achievements and Activities</div>
                 </div>
-              </motion.div>
+              </motion.div> */}
               
               <motion.div 
                 whileHover={{ scale: 1.05, y: -5 }}
-                className="relative bg-gradient-to-br from-orange-900/40 to-orange-800/20 backdrop-blur-sm border border-orange-700/50 rounded-2xl p-6 text-center group"
+                className="relative bg-gradient-to-br from-gray-900/40 to-gray-800/20 backdrop-blur-sm border border-neutral-700 rounded-2xl p-6 text-center group"
               >
                 <div className="absolute inset-0 bg-gradient-to-r from-orange-500/10 to-red-500/10 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
                 <div className="relative z-10">
@@ -498,7 +433,7 @@ export default function AboutMe() {
                 className="relative bg-gradient-to-br from-yellow-900/20 to-amber-900/10 backdrop-blur-sm border border-yellow-700/30 rounded-3xl p-8 group"
               >
                 <div className="absolute top-4 right-4">
-                  <div className="w-12 h-12 bg-gradient-to-br from-yellow-500 to-amber-500 rounded-full flex items-center justify-center">
+                  <div className="w-12 h-12 bg-gradient-to-br from-gray-500 to-gray-500 rounded-full flex items-center justify-center">
                     <IconDownload className="h-6 w-6 text-white" />
                   </div>
                 </div>
@@ -523,7 +458,7 @@ export default function AboutMe() {
                       </div>
                       {c.year && (
                         <div className="text-right">
-                          <span className="inline-block px-3 py-1 bg-yellow-500/20 text-yellow-300 text-xs rounded-full border border-yellow-500/30">
+                          <span className="inline-block px-3 py-1 bg-yellow-500/20 text-gray-300 text-xs rounded-full border border-yellow-500/30">
                             {c.year}
                           </span>
                         </div>
@@ -546,7 +481,7 @@ export default function AboutMe() {
                 </div>
                 <h3 className="text-2xl font-bold text-green-300 mb-6 flex items-center gap-3">
                   <span className="w-8 h-0.5 bg-gradient-to-r from-green-500 to-emerald-500"></span>
-                  Achievements
+                  Achievements and Activities
                 </h3>
                 <div className="space-y-4">
                   {achievements.map((a, i) => (
@@ -573,7 +508,7 @@ export default function AboutMe() {
         <section id="contact" className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-10 py-16 sm:py-20">
           <motion.div variants={container} initial="hidden" whileInView="visible" viewport={{ once: true, amount: 0.2 }}>
             <motion.h2 variants={item} className="text-4xl md:text-5xl font-bold mb-16 text-center">
-              <AuroraText className="px-2">Let&apos;s Connect</AuroraText>
+              Let&apos;s Connect
             </motion.h2>
             
             <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
