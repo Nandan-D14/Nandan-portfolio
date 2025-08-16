@@ -165,8 +165,27 @@ export default function AboutMe() {
             </motion.div>
 
             {/* Right side interactive 3D showcase */}
-            <div className="relative min-h-[380px] md:min-h-[520px]">
-              <InteractiveModelDynamic />
+            <div className="relative min-h-[380px] md:min-h-[520px] flex items-center justify-center">
+              <motion.div
+              className="bg-gray-800 grayscale-40 border-2 border-dashed border-gray-700 rounded-3xl w-40 h-40 md:w-88 md:h-108 flex items-center justify-center overflow-hidden"
+              whileHover={{
+                scale: 1.05,
+                rotate: 2,
+                transition: { type: "spring", stiffness: 300, damping: 20 },
+              }}
+            >
+              <img
+                src="https://i.pinimg.com/originals/7a/f9/b4/7af9b404e92dc6c44a70241c2409ada5.jpg"
+                alt="Profile"
+                className="w-full h-full object-cover"
+                onError={(e) => {
+                  const target = e.target as HTMLImageElement;
+                  target.onerror = null;
+                  target.src =
+                    "https://placehold.co/192x192/e2e8f0/475569?text=Image";
+                }}
+              />
+            </motion.div>
             </div>
           </div>
         </section>

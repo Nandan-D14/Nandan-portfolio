@@ -229,7 +229,7 @@ export default function Portfolio() {
               }}
             >
               <img
-                src="https://i.pinimg.com/736x/d6/8a/12/d68a121e960094f99ad8acd37505fb7d.jpg"
+                src="https://i.pinimg.com/originals/7a/f9/b4/7af9b404e92dc6c44a70241c2409ada5.jpg"
                 alt="Profile"
                 className="w-full h-full object-cover"
                 onError={(e) => {
