@@ -198,7 +198,7 @@ export default function Portfolio() {
                 <GithubIcon />
               </motion.a>
               <motion.a
-                href="https://linkedin.com/in/nandan-14"
+                href="https://linkedin.com/in/Nandan-D14"
                 className="social-link w-8 h-8 rounded-full flex items-center justify-center text-gray-300 hover:text-white transition-transform hover:-translate-y-0.5 hover:bg-slate-800"
                 whileHover={{ scale: 1.2, y: -3 }}
               >
