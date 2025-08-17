@@ -176,7 +176,7 @@ export default function Portfolio() {
               View My CV
             </motion.a>
             <motion.a
-              href="/about#contact"
+              href="/aboutme#contact"
               className="btn btn-light px-5 py-2.5 text-sm font-medium text-white flex items-center gap-2 border border-slate-700 rounded-lg transition-colors hover:bg-slate-100 hover:text-black"
               whileHover={{ scale: 1.05, y: -2 }}
               whileTap={{ scale: 0.95 }}
