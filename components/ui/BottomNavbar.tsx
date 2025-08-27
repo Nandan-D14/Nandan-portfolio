@@ -1,9 +1,3 @@
-/**
- * Note: Use position fixed according to your needs
- * Desktop navbar is better positioned at the bottom
- * Mobile navbar is better positioned at bottom right.
- **/
-
 import { cn } from "@/lib/utils";
 import {
   IconBook2,
@@ -20,6 +14,7 @@ import {
   useSpring,
   useTransform,
 } from "motion/react";
+import Link from "next/link";
 import { motion } from "framer-motion";
 
 import { useRef, useState } from "react";
@@ -76,13 +71,13 @@ const FloatingDockMobile = ({
                 }}
                 transition={{ delay: (items.length - 1 - idx) * 0.05 }}
               >
-                <a
+                <Link
                   href={item.href}
                   key={item.title}
                   className="flex h-10 w-10 items-center justify-center rounded-full  bg-neutral-900"
                 >
                   <div className="h-4 w-4">{item.icon}</div>
-                </a>
+                </Link>
               </motion.div>
             ))}
           </motion.div>
@@ -176,7 +171,7 @@ function IconContainer({
   const [hovered, setHovered] = useState(false);
 
   return (
-    <a href={href}>
+    <Link href={href}>
       <motion.div
         ref={ref}
         style={{ width, height }}
@@ -203,7 +198,7 @@ function IconContainer({
           {icon}
         </motion.div>
       </motion.div>
-    </a>
+    </Link>
   );
 }
 
@@ -236,7 +231,18 @@ export default function BottomNavbar() {
     },
   ];
   return (
-    <div className="fixed bottom-[max(1rem,env(safe-area-inset-bottom))]  left-1/2 -translate-x-1/2 z-50 w-auto  px-4">
+    <div className="
+  fixed 
+  bottom-[max(1rem,env(safe-area-inset-bottom))] 
+  left-0
+  z-50 
+  w-auto  
+  px-4
+  md:left-1/2 md:-translate-x-1/2
+  ">
+  <FloatingDock mobileClassName="translate-y-0" items={links} />
+</div>
+
       <FloatingDock mobileClassName="translate-y-0" items={links} />
     </div>
   );
