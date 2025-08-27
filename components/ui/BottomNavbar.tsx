@@ -231,16 +231,8 @@ export default function BottomNavbar() {
     },
   ];
   return (
-    <div className="
-  fixed 
-  bottom-[max(1rem,env(safe-area-inset-bottom))] 
-  left-0
-  z-50 
-  w-auto  
-  px-4
-  md:left-1/2 md:-translate-x-1/2
-  ">
-  <FloatingDock mobileClassName="translate-y-0" items={links} />
-</div>
+    <div className="fixed bottom-[max(1rem,env(safe-area-inset-bottom))] left-0 z-50 w-auto px-4 md:left-1/2 md:-translate-x-1/2">
+      <FloatingDock mobileClassName="translate-y-0" items={links} />
+    </div>
   );
 }
