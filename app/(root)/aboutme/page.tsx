@@ -105,7 +105,7 @@ export default function AboutMe() {
 
   return (
     <SmoothScroll>
-      <main className="relative min-h-screen w-full overflow-x-hidden text-neutral-100
+      <main className="relative min-h-screen w-full overflow-x-hidden text-neutral-100>
         <Simple3DBackgroundDynamic />
          <section className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-10 pt-20 sm:pt-28 md:pt-36 pb-16 sm:pb-24">
            <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-10 items-center">
