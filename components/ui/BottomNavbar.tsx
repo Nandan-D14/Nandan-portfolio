@@ -242,8 +242,5 @@ export default function BottomNavbar() {
   ">
   <FloatingDock mobileClassName="translate-y-0" items={links} />
 </div>
-
-      <FloatingDock mobileClassName="translate-y-0" items={links} />
-    </div>
   );
 }
