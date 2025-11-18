@@ -89,7 +89,6 @@ const techLogos: { [key: string]: string } = {
   "GitHub": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/github/github-original.svg",
   "Docker": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/docker/docker-original.svg",
   // "AWS": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/amazonwebservices/amazonwebservices-original.svg",
-  "Firebase": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/firebase/firebase-plain.svg",
   "Vercel": "https://assets.vercel.com/image/upload/q_auto/front/assets/design/vercel-triangle-black.svg",
   "Figma": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/figma/figma-original.svg",
   "VS Code": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/vscode/vscode-original.svg",
@@ -105,7 +104,7 @@ export default function AboutMe() {
 
   return (
     <SmoothScroll>
-      <main className="relative min-h-screen w-full overflow-x-hidden text-neutral-100>
+      <main className="relative min-h-screen w-full overflow-x-hidden text-neutral-100">
         <Simple3DBackgroundDynamic />
          <section className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-10 pt-20 sm:pt-28 md:pt-36 pb-16 sm:pb-24">
            <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-10 items-center">
